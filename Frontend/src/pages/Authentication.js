@@ -52,5 +52,10 @@ export const action = async ({request}) => {
     )
   }
 
+  const resData = await response.json()
+  const token = resData.token
+  // console.log(resData, 'resda')
+  localStorage.setItem('token', token)
+
   return redirect('/')
 }
