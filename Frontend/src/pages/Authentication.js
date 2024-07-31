@@ -56,6 +56,10 @@ export const action = async ({request}) => {
   const token = resData.token
   // console.log(resData, 'resda')
   localStorage.setItem('token', token)
+  const expiration = new Date()
+  expiration.setHours(expiration.getHours() + 1)
+  localStorage.setItem('expiration', expiration.toISOString())
+  console.log(expiration, 'exp')
 
   return redirect('/')
 }
